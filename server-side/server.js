@@ -1,15 +1,21 @@
 const express = require('express')
-const port = 3000
-
-const User = require('./User.js')
+const bodyParser = require('body-parser')
 
 const app = express()
 
-app.listen(port, () => {
-    console.log('server running on port ' + port)
-})
-app.use(express.urlencoded({ extended: true }))
+// Use the body-parser middleware to parse plain text
+app.use(bodyParser.text())
 
-app.post('/', (req, res) => {
-    console.log(req)
+app.post('/getUser', (req, res) => {
+    console.log(req.body)
+    res.send('podaci o korisniku')
+})
+
+app.post('/getUserCourses', (req, res) => {
+    console.log(req.body)
+    res.send('kursevi koje slusa korisnik')
+})
+
+app.listen(port, () => {
+    console.log('Server listening on port 3000')
 })
