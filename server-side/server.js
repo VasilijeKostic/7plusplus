@@ -1,6 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 
+const port = 3000
+
 const app = express()
 
 // Use the body-parser middleware to parse plain text
