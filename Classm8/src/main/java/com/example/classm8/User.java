@@ -61,6 +61,7 @@ public class User {
     }
 
  /*   public User matchUser(List<User> users) {
+    public User matchUser(List<User> users) {
         User bestUser = null;
         double bestSimilarity = 0;
         int numberOfSameCourses, ageDifference;
@@ -77,7 +78,6 @@ public class User {
 
         return bestUser;
     }
-
     private int countSameCourses(User user) {
         List<String> myCourses = getCoursesFromDataBase(getUsername());
         List<String> userCourses = getCoursesFromDataBase(user.getUsername());
