@@ -24,10 +24,10 @@ public class LecturesController {
     private Button buttonBack;
 
     @FXML
-    private Button buttonChat;
+    private Button buttonChoose;
 
     @FXML
-    private ListView<?> enrolledCoursesList;
+    private ListView<String> enrolledCoursesList;
 
     @FXML
     private Label title;
@@ -44,33 +44,23 @@ public class LecturesController {
         //Image icon = new Image(HelloApplication.class.getResourceAsStream("/classm8icon.png"));
         //stage.getIcons().add(icon);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Enrolled Courses");
+        stage.setTitle("Lectures");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
     }
 
     @FXML
-    void chat(ActionEvent event) {
+    void choose(ActionEvent event) {
 
     }
 
-    @FXML
-    void select(MouseEvent event) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("lectureVideo.fxml"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        root.setStyle("-fx-background-color: olivedrab;");
-        Scene scene = new Scene(root, 1200, 900);
-        //Image icon = new Image(HelloApplication.class.getResourceAsStream("/classm8icon.png"));
-        //stage.getIcons().add(icon);
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Enrolled Courses");
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();
+    public void ucitajLekcije(String[] s) {
+        enrolledCoursesList.getItems().addAll(s);
+    }
+
+    public void labela(String s) {
+        title.setText(s);
     }
 
 }

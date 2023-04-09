@@ -8,13 +8,13 @@
 
 <AnchorPane fx:id="enrolledCourses" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.classm8.EnrolledCoursesController">
    <children>
-      <ListView fx:id="enrolledCoursesList" fixedCellSize="100.0" layoutX="215.0" layoutY="105.0" onMouseClicked="#select" prefHeight="591.0" prefWidth="771.0" />
+      <ListView fx:id="enrolledCoursesList" fixedCellSize="100.0" layoutX="215.0" layoutY="105.0" prefHeight="591.0" prefWidth="771.0" />
       <Button fx:id="buttonLogOut" alignment="CENTER" layoutX="14.0" layoutY="841.0" mnemonicParsing="false" onAction="#logout" prefHeight="45.0" prefWidth="190.0" text="Log Out" />
       <Label fx:id="title" alignment="CENTER" layoutX="304.0" layoutY="14.0" prefHeight="59.0" prefWidth="594.0" text="Upisani kursevi">
          <font>
             <Font size="50.0" />
          </font>
       </Label>
-      <Button fx:id="buttonChat" alignment="CENTER" layoutX="996.0" layoutY="841.0" mnemonicParsing="false" onAction="#chat" prefHeight="45.0" prefWidth="190.0" text="Chat" />
+      <Button fx:id="buttonChoose" alignment="CENTER" layoutX="996.0" layoutY="841.0" mnemonicParsing="false" onAction="#choose" prefHeight="45.0" prefWidth="190.0" text="Choose" />
    </children>
 </AnchorPane>
