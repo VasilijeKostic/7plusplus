@@ -34,8 +34,7 @@ public class ChatClient {
                     String posiljalac = temp[0];
                     String primalac = temp[1];
                     String poruka = temp[2];
-                    GlobalUsername x = new GlobalUsername();
-                    if (primalac.equals(x.getGlobalUsername())) {
+                    if (primalac.equals(GlobalUsername.gu)) {
                         System.out.println(posiljalac + ": " + poruka);
                     };
                 }

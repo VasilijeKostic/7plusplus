@@ -46,6 +46,9 @@ public class LoginPage {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+        // Milos START
+        GlobalUsername.gu = (textUsername.getText());
+        // Milos END
     }
 
     @FXML
