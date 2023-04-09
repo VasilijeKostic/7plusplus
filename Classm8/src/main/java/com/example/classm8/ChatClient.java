@@ -30,7 +30,13 @@ public class ChatClient {
                 @Override
                 public void call(Object... args) {
                     String message = (String) args[0];
-                    System.out.println("Received message: " + message);
+                    String[] temp = message.split("[$]");
+                    String posiljalac = temp[0];
+                    String primalac = temp[1];
+                    String poruka = temp[2];
+                    if (primalac.equals("stark")) {
+                        System.out.println(posiljalac + ": " + poruka);
+                    };
                 }
             });
         } catch (Exception e) {
