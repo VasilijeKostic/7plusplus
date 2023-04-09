@@ -15,11 +15,11 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            Parent root = FXMLLoader.load(HelloApplication.class.getResource("hello-view.fxml"));
+            Parent root = FXMLLoader.load(HelloApplication.class.getResource("enrolledCourses.fxml"));
             root.setStyle("-fx-background-color: olivedrab;");
-            Scene scene = new Scene(root, 600, 400);
-            Image icon = new Image(HelloApplication.class.getResourceAsStream("/classm8icon.png"));
-            stage.getIcons().add(icon);
+            Scene scene = new Scene(root, 1200, 900);
+            //Image icon = new Image(HelloApplication.class.getResourceAsStream("/classm8icon.png"));
+            //stage.getIcons().add(icon);
             stage.setTitle("Classm8 Login");
             stage.setScene(scene);
             stage.setResizable(false);
