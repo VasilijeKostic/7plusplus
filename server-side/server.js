@@ -11,22 +11,6 @@ app.use(bodyParser.text())
 
 let onlineUsersCourse = {}
 
-function testGas(input) {
-    let courseName = input
-    database.db.all(`
-        SELECT L.Name
-        FROM Course C, Lecture L
-        WHERE C.Name=? AND L.ID_Course=C.ID_Course
-    `, [courseName], (err, rows) => {
-        if (err) {
-            console.log(err)
-        }
-        else {
-            console.log(rows.map(element => element['Name']).join('$'))
-        }
-    })
-}
-
 app.post('/insertUser', (req, res) => {
     let [Username, Name, Surname] = req.body.split('$')
     database.db.run(`
@@ -113,5 +97,3 @@ add.post('/getOnlineUsers', (req, res) => {
     let lectureName = req.body
     res.send(Array.from(onlineUsersCourse[lectureName]).join('$'))
 })
-
-testGas('TMI')
