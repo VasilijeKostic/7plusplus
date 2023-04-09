@@ -41,7 +41,7 @@ public class EnrolledCoursesController {
     private AnchorPane enrolledCourses;
 
     @FXML
-    private ListView<String> enrolledCoursesList;
+    private ListView<?> enrolledCoursesList;
 
     @FXML
     private Label title;
@@ -94,8 +94,30 @@ public class EnrolledCoursesController {
         stage.show();
     }
 
+<<<<<<< HEAD
     public void ucitajKurseve(String[] s) {
         enrolledCoursesList.getItems().addAll(s);
+=======
+    @FXML
+    void select(MouseEvent event) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("lectures.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        root.setStyle("-fx-background-color: olivedrab;");
+        Scene scene = new Scene(root, 1200, 900);
+        //Image icon = new Image(HelloApplication.class.getResourceAsStream("/classm8icon.png"));
+        //stage.getIcons().add(icon);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Enrolled Courses");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+        // moj kod
+        Communication com = new Communication();
+        String[] nizLekcija = com.getLectures(GlobalUsername.gu);
+>>>>>>> a6467e101c528e101bca27aa4c8054f4308e8ba9
     }
 
 }
