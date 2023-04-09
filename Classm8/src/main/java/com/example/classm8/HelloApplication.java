@@ -13,12 +13,14 @@ import java.io.IOException;
 import java.util.List;
 
 public class HelloApplication extends Application {
+    private Scene scene;
+    private Parent root;
     @Override
     public void start(Stage stage) {
         try {
-            Parent root = FXMLLoader.load(HelloApplication.class.getResource("loginPage.fxml"));
+            root = FXMLLoader.load(getClass().getResource("loginPage.fxml"));
             root.setStyle("-fx-background-color: olivedrab;");
-            Scene scene = new Scene(root, 1200, 900);
+            scene = new Scene(root, 1200, 900);
             //Image icon = new Image(HelloApplication.class.getResourceAsStream("/classm8icon.png"));
             //stage.getIcons().add(icon);
             stage.setTitle("Classm8 Login");
