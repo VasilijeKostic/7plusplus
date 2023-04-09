@@ -7,7 +7,8 @@ import java.io.*;
 public class Communication {
 
     public Communication() {}
-/*
+
+    /*
     public String Request() {
         try {
             // Set the URL of the Node.js server
@@ -67,7 +68,8 @@ public class Communication {
             return "ERROR_ERROR_ERROR";
         }
     }
-*/
+    */
+
     public String Request(String suffix, String argument) {
         try {
             // Set the URL of the Node.js server

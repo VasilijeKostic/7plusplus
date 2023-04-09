@@ -30,14 +30,10 @@ public class HelloApplication extends Application {
         }
     }
 
-   /* public static void main(String[] args) {
-        Communication com = new Communication();
-        // com.insertUser("jovan", "Marko", "Jovanovic");
-        // for (String t : com.getLectures("KPJ")){
-        // System.out.println(t);};
-        System.out.println(com.getUser("jovan")[1]);
+    public static void main(String[] args) {
+
         launch(args);
-    }*/
+    }
 }
 
 
