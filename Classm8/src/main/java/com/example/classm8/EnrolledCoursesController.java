@@ -72,7 +72,7 @@ public class EnrolledCoursesController {
     @FXML
     void select(MouseEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("loginPage.fxml"));
+            root = FXMLLoader.load(getClass().getResource("lectures.fxml"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
