@@ -41,7 +41,7 @@ public class EnrolledCoursesController {
     private AnchorPane enrolledCourses;
 
     @FXML
-    private ListView<?> enrolledCoursesList;
+    private ListView<String> enrolledCoursesList;
 
     @FXML
     private Label title;
@@ -87,7 +87,11 @@ public class EnrolledCoursesController {
         stage.show();
         // moj kod
         Communication com = new Communication();
-        String[] nizLekcija = com.getLectures("GlobalUsername.gu");
+        String[] nizLekcija = com.getLectures(GlobalUsername.gu);
+    }
+
+    public void ucitajKurseve(String[] s) {
+        enrolledCoursesList.getItems().addAll(s);
     }
 
 }

@@ -32,11 +32,20 @@ public class LoginPage {
 
     @FXML
     void login(ActionEvent event) {
+        GlobalUsername.gu = (textUsername.getText());
+        Communication com = new Communication();
+        String[] nizKurseva = com.getCourses(GlobalUsername.gu);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("enrolledCourses.fxml"));
         try {
-            root = FXMLLoader.load(getClass().getResource("enrolledCourses.fxml"));
+            root = loader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        EnrolledCoursesController upisaniKursevi = loader.getController();
+        upisaniKursevi.ucitajKurseve(nizKurseva);
+
         root.setStyle("-fx-background-color: olivedrab;");
         Scene scene = new Scene(root, 1200, 900);
         //Image icon = new Image(HelloApplication.class.getResourceAsStream("/classm8icon.png"));
@@ -46,11 +55,6 @@ public class LoginPage {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-        // Milos START
-        GlobalUsername.gu = (textUsername.getText());
-        Communication com = new Communication();
-        String[] nizKurseva = com.getCourses("GlobalUsername.gu");
-        // Milos END
     }
 
     @FXML
