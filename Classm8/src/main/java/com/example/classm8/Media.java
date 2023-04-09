@@ -48,7 +48,8 @@ public class Media {
             onlineUsersList.add(tempOnlineUser);
         }
 
-
+        User classmate = user.matchUser(onlineUsersList);
+        System.out.println(classmate.getUsername());
     }
 
     @FXML

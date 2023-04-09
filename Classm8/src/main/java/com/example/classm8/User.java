@@ -56,7 +56,7 @@ public class User {
         for(User user : users) {
             double currentSimilarity = countSameCourses(user);
 
-            if (currentSimilarity > bestSimilarity) {
+            if (currentSimilarity > bestSimilarity && user.username != GlobalUsername.gu) {
                 bestSimilarity = currentSimilarity;
                 bestUser = new User(user);
             }
