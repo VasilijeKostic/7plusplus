@@ -93,7 +93,7 @@ app.listen(port, () => {
     console.log('Server listening on port 3000')
 })
 
-add.post('/getOnlineUsers', (req, res) => {
+app.post('/getOnlineUsers', (req, res) => {
     let lectureName = req.body
     res.send(Array.from(onlineUsersCourse[lectureName]).join('$'))
 })
