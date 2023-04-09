@@ -31,7 +31,6 @@ public class Media {
 
     @FXML
     void chat(ActionEvent event) {
-
     }
 
     @FXML
