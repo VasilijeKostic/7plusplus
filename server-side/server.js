@@ -11,6 +11,18 @@ app.use(bodyParser.text())
 
 let onlineUsersCourse = {}
 
+function test(input) {
+    let [Username, Name, Surname] = input.split('$')
+    database.db.run(`
+        INSERT INTO User(Username, Name, Surname)
+        VALUES(?, ?, ?)
+    `, [Username, Name, Surname], (err) => {
+        if (err) {
+            console.log(err)
+        }
+    })
+}
+
 app.post('/insertUser', (req, res) => {
     let [Username, Name, Surname] = req.body.split('$')
     database.db.run(`
@@ -19,6 +31,9 @@ app.post('/insertUser', (req, res) => {
     `, [Username, Name, Surname], (err) => {
         if (err) {
             console.log(err)
+        }
+        else {
+            res.send('success')
         }
     })
 })
@@ -82,11 +97,13 @@ app.post('/insertUsernameLecture', (req, res) => {
     else {
         onlineUsersCourse[lectureName] = new Set()
     }
+    res.send('success')
 })
 
 app.post('removeUsernameLecture', (req, res) => {
     let [Username, lectureName] = req.body.split('$')
     onlineUsersCourse[lectureName].delete(Username)
+    res.send('success')
 })
 
 app.listen(port, () => {
