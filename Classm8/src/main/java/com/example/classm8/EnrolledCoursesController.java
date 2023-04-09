@@ -86,7 +86,7 @@ public class EnrolledCoursesController {
         stage.setResizable(false);
         stage.show();
     }
-    
+
 }
 
 

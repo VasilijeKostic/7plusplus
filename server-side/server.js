@@ -2,6 +2,9 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const database = require('./db.js')
 
+// SOCKETS Milos
+const socket = require('socket.io');
+
 const port = 3000
 
 const app = express()
@@ -140,6 +143,24 @@ app.post('/getOnlineUsers', (req, res) => {
     res.send(Array.from(onlineUsersCourse[lectureName]).join('$'))
 })
 
-app.listen(port, () => {
+// Milos - dodao sam const server = ...
+const server = app.listen(port, () => {
     console.log('Server listening on port 3000')
 })
+
+// SOCKETS Milos START
+const io = socket(server);
+
+io.on('connection', (socket) => {
+  console.log('a user connected');
+
+  socket.on('chat message', (msg) => {
+    console.log('message: ' + msg);
+    io.emit('chat message', msg);
+  });
+
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+});
+// SOCKETS Milos END

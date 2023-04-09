@@ -33,7 +33,11 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
+        User LoggedUser = new User("stark", "coko", "lada", 23);
+        ChatClient client = new ChatClient();
+        client.connect();
 
+        client.sendMessage("stark$stark$Hello from Java!");
         launch(args);
     }
 }
