@@ -31,6 +31,12 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
+
+        ChatClient client = new ChatClient();
+        client.connect();
+
+        client.sendMessage("Hello from Java!");
+
         launch(args);
     }
 }

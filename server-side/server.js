@@ -12,13 +12,23 @@ app.use(bodyParser.text())
 let onlineUsersCourse = {}
 
 function test(input) {
-    let [Username, Name, Surname] = input.split('$')
-    database.db.run(`
-        INSERT INTO User(Username, Name, Surname)
-        VALUES(?, ?, ?)
-    `, [Username, Name, Surname], (err) => {
+    let [Username, lectureName] = input.split('$')
+    database.db.all(`
+        SELECT U.Name, L.Name
+        FROM User U, UserCourse UC, Lecture L
+        WHERE U.Username=? AND UC.ID_User=U.ID_User AND L.Name=? AND L.ID_Course=UC.ID_Course
+    `, [Username, lectureName], (err, rows) => {
         if (err) {
-            console.log(err)
+            console.log('[insertUsernameLecture]', err)
+        }
+        else {
+            if (rows.length > 0) {
+                if (!(lectureName in onlineUsersCourse)) {
+                    onlineUsersCourse[lectureName] = new Set()
+                }
+                onlineUsersCourse[lectureName].add(Username)
+            }
+            console.log('online: ', onlineUsersCourse)
         }
     })
 }
@@ -91,17 +101,38 @@ app.post('/getLectures', (req, res) => {
 
 app.post('/insertUsernameLecture', (req, res) => {
     let [Username, lectureName] = req.body.split('$')
-    if (!(lectureName in onlineUsersCourse)) {
-        onlineUsersCourse[lectureName] = new Set()
-    }
-    onlineUsersCourse[lectureName].add(Username)
-    res.send('success')
+    database.db.all(`
+        SELECT U.Name, L.Name
+        FROM User U, UserCourse UC, Lecture L
+        WHERE U.Username=? AND UC.ID_User=U.ID_User AND L.Name=? AND L.ID_Course=UC.ID_Course
+    `, [Username, lectureName], (err, rows) => {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            if (rows.length > 0) {
+                if (!(lectureName in onlineUsersCourse)) {
+                    onlineUsersCourse[lectureName] = new Set()
+                }
+                onlineUsersCourse[lectureName].add(Username)
+                res.send('success')
+            }
+            else {
+                res.send('failure')
+            }
+        }
+    })
 })
 
 app.post('/removeUsernameLecture', (req, res) => {
     let [Username, lectureName] = req.body.split('$')
-    onlineUsersCourse[lectureName].delete(Username)
-    res.send('success')
+    if (lectureName in onlineUsersCourse && onlineUsersCourse[lectureName].size > 0) {
+        onlineUsersCourse[lectureName].delete(Username)
+        res.send('success')
+    }
+    else {
+        res.send('failure')
+    }
 })
 
 app.post('/getOnlineUsers', (req, res) => {
