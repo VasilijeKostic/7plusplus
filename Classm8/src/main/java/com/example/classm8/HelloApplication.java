@@ -16,7 +16,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            Parent root = FXMLLoader.load(HelloApplication.class.getResource("enrolledCourses.fxml"));
+            Parent root = FXMLLoader.load(HelloApplication.class.getResource("loginPage.fxml"));
             root.setStyle("-fx-background-color: olivedrab;");
             Scene scene = new Scene(root, 1200, 900);
             //Image icon = new Image(HelloApplication.class.getResourceAsStream("/classm8icon.png"));

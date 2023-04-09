@@ -60,7 +60,6 @@ public class User {
         this.age = age;
     }
 
- /*   public User matchUser(List<User> users) {
     public User matchUser(List<User> users) {
         User bestUser = null;
         double bestSimilarity = 0;
@@ -96,7 +95,7 @@ public class User {
 
         return (courseWeight * sameCourses) + (ageWeight * ageDiff);
     }
-*/
+
     @Override
     public String toString() {
         return "User: " + name + " " + surname;
