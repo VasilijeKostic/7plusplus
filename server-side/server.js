@@ -91,12 +91,10 @@ app.post('/getLectures', (req, res) => {
 
 app.post('/insertUsernameLecture', (req, res) => {
     let [Username, lectureName] = req.body.split('$')
-    if (lectureName in onlineUsersCourse) {
-        onlineUsersCourse[lectureName].add(Username)
-    }
-    else {
+    if (!(lectureName in onlineUsersCourse)) {
         onlineUsersCourse[lectureName] = new Set()
     }
+    onlineUsersCourse[lectureName].add(Username)
     res.send('success')
 })
 
@@ -106,11 +104,11 @@ app.post('removeUsernameLecture', (req, res) => {
     res.send('success')
 })
 
-app.listen(port, () => {
-    console.log('Server listening on port 3000')
-})
-
 app.post('/getOnlineUsers', (req, res) => {
     let lectureName = req.body
     res.send(Array.from(onlineUsersCourse[lectureName]).join('$'))
+})
+
+app.listen(port, () => {
+    console.log('Server listening on port 3000')
 })
