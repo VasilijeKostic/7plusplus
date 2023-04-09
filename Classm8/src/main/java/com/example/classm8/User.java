@@ -60,9 +60,10 @@ public class User {
         this.age = age;
     }
 
+ /*   public User matchUser(List<User> users) {
     public User matchUser(List<User> users) {
         User bestUser = null;
-        int bestSimilarity = 0;
+        double bestSimilarity = 0;
         int numberOfSameCourses, ageDifference;
         for(User user : users) {
             int sameCourse = countSameCourses(user);
@@ -77,11 +78,12 @@ public class User {
 
         return bestUser;
     }
-
     private int countSameCourses(User user) {
+        List<String> myCourses = getCoursesFromDataBase(getUsername());
+        List<String> userCourses = getCoursesFromDataBase(user.getUsername());
         int count = 0;
-        for (String course : this.courses) {
-            if (user.getCourses().contains(course)) {
+        for (String course : myCourses) {
+            if (userCourses.contains(course)) {
                 count++;
             }
         }
@@ -94,7 +96,7 @@ public class User {
 
         return (courseWeight * sameCourses) + (ageWeight * ageDiff);
     }
-
+*/
     @Override
     public String toString() {
         return "User: " + name + " " + surname;
