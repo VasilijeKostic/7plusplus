@@ -49,7 +49,7 @@ public class LoginPage {
         // Milos START
         GlobalUsername.gu = (textUsername.getText());
         Communication com = new Communication();
-        String[] nizKurseva = com.getCourses("GlobalUsername.gu");
+        String[] nizKurseva = com.getCourses(GlobalUsername.gu);
         // Milos END
     }
 
