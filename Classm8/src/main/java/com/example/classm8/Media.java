@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import java.util.*;
 
 public class Media {
 
@@ -35,6 +36,19 @@ public class Media {
 
     @FXML
     void findClassmate(ActionEvent event) {
+        Communication com = new Communication();
+        String[] userData = com.getUser(GlobalUsername.gu);
+        User user = new User(userData[0], userData[1], userData[2]);
+
+        String[] onlineUsernames = com.getOnlineUsers(GlobalLecture.gl);
+        List<User> onlineUsersList = new ArrayList<>();
+        for (String username : onlineUsernames) {
+            String[] tempUserData = com.getUser(username);
+            User tempOnlineUser = new User(tempUserData[0], tempUserData[1], tempUserData[2]);
+
+            onlineUsersList.add(tempOnlineUser);
+        }
+
 
     }
 

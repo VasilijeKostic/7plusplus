@@ -6,33 +6,24 @@ import static java.util.Arrays.asList;
 
 public class User {
     private String username, name, surname;
-    int age;
 
-    public User(String username, String name, String surname, int age) {
+    public User(String username, String name, String surname) {
         this.username = username;
         this.name = name;
         this.surname = surname;
-        this.age = age;
     }
 
     public User(User user) {
         this.username = user.getUsername();
         this.name = user.getName();
         this.surname = user.getSurname();
-        this.age = user.getAge();
     }
 
     public User() {
         this.username = null;
         this.name = null;
         this.surname = null;
-        this.age = 0;
     }
-
-    public int getAge() {
-        return age;
-    }
-
 
     public String getUsername() {
         return username;
@@ -56,10 +47,6 @@ public class User {
 
     public void setSurname(String surname) {
         this.surname = surname;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public User matchUser(List<User> users) {
