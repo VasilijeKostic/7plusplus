@@ -14,8 +14,8 @@ let onlineUsersCourse = {}
 app.post('/insertUser', (req, res) => {
     let [Username, Name, Surname] = req.body.split('$')
     database.db.run(`
-        INSER INTO User(Username, Name, Surname)
-        VALUES(?, ?, ?, ?)
+        INSERT INTO User(Username, Name, Surname)
+        VALUES(?, ?, ?)
     `, [Username, Name, Surname], (err) => {
         if (err) {
             console.log(err)
