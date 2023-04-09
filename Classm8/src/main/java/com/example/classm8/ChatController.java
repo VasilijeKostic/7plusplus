@@ -33,4 +33,8 @@ public class ChatController {
     void send(ActionEvent event) {
 
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> cd825480371f154e37f72545a29eede04c1b42b9
