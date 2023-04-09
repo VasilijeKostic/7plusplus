@@ -108,6 +108,7 @@ public class Communication {
         }
     }
 
+    /*
     public void RequestNothing(String suffix, String argument) {
         try {
             // Set the URL of the Node.js server
@@ -132,36 +133,37 @@ public class Communication {
             System.out.println("Exception: " + e.getMessage());
         }
     }
+    */
 
     public String[] getUser(String username){
         String username_name_surname = this.Request("getUser", username);
-        return username_name_surname.split("$");
+        return username_name_surname.split("[$]");
     }
 
     public String[] getCourses(String username){
         String courses = this.Request("getCourses", username);
-        return courses.split("$");
+        return courses.split("[$]");
     }
 
     public String[] getLectures(String course){
         String lectures = this.Request("getLectures", course);
-        return lectures.split("$");
+        return lectures.split("[$]");
     }
 
     public String[] getOnlineUsers(String lecture){
         String onlineUsers = this.Request("getOnlineUsers", lecture);
-        return onlineUsers.split("$");
+        return onlineUsers.split("[$]");
     }
 
     public void insertUser(String username, String name, String surname){
-        this.RequestNothing("insertUser", username + '$' + name + '$' + surname);
+        this.Request("insertUser", username + "$" + name + "$" + surname);
     }
 
     public void insertUsernameLecture(String username, String lecture){
-        this.RequestNothing("insertUsernameLecture", username + '$' + lecture);
+        this.Request("insertUsernameLecture", username + "$" + lecture);
     }
 
     public void removeUsernameLecture(String username, String lecture){
-        this.RequestNothing("removeUsernameLecture", username + '$' + lecture);
+        this.Request("removeUsernameLecture", username + "$" + lecture);
     }
 }
