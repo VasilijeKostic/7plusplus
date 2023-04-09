@@ -48,12 +48,13 @@ public class LoginPage {
         stage.show();
         // Milos START
         GlobalUsername.gu = (textUsername.getText());
+        Communication com = new Communication();
+        String[] nizKurseva = com.getCourses("GlobalUsername.gu");
         // Milos END
     }
 
     @FXML
     void register(ActionEvent event) {
-
     }
 
 }

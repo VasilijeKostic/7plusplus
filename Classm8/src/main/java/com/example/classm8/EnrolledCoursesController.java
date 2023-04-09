@@ -85,6 +85,9 @@ public class EnrolledCoursesController {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+        // moj kod
+        Communication com = new Communication();
+        String[] nizLekcija = com.getLectures("GlobalUsername.gu");
     }
 
 }
