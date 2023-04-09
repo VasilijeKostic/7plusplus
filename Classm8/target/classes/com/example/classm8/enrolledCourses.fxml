@@ -5,6 +5,6 @@
 
 <AnchorPane fx:id="enrolledCourses" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.classm8.EnrolledCoursesController">
    <children>
-      <ListView fx:id="enrolledCoursesList" layoutX="429.0" layoutY="309.0" prefHeight="591.0" prefWidth="771.0" />
+      <ListView fx:id="enrolledCoursesList" layoutX="215.0" layoutY="90.0" prefHeight="591.0" prefWidth="771.0" />
    </children>
 </AnchorPane>

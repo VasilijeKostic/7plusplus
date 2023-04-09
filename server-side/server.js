@@ -98,7 +98,7 @@ app.post('/insertUsernameLecture', (req, res) => {
     res.send('success')
 })
 
-app.post('removeUsernameLecture', (req, res) => {
+app.post('/removeUsernameLecture', (req, res) => {
     let [Username, lectureName] = req.body.split('$')
     onlineUsersCourse[lectureName].delete(Username)
     res.send('success')
