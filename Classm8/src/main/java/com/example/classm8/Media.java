@@ -11,6 +11,9 @@ public class Media {
     private Button buttonChat;
 
     @FXML
+    private Button buttonClassmate;
+
+    @FXML
     private Button buttonLogOut;
 
     @FXML
@@ -27,6 +30,11 @@ public class Media {
 
     @FXML
     void chat(ActionEvent event) {
+
+    }
+
+    @FXML
+    void findClassmate(ActionEvent event) {
 
     }
 
