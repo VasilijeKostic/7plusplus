@@ -2,6 +2,8 @@ package com.example.classm8;
 
 import java.util.List;
 
+import static java.util.Arrays.asList;
+
 public class User {
     private String username, name, surname;
     int age;
@@ -60,15 +62,12 @@ public class User {
         this.age = age;
     }
 
- /*   public User matchUser(List<User> users) {
     public User matchUser(List<User> users) {
         User bestUser = null;
         double bestSimilarity = 0;
-        int numberOfSameCourses, ageDifference;
+        int numberOfSameCourses;
         for(User user : users) {
-            int sameCourse = countSameCourses(user);
-            int ageDiff = Math.abs(age - user.getAge());
-            double currentSimilarity = calculateSimilarity(sameCourse, ageDiff);
+            double currentSimilarity = countSameCourses(user);
 
             if (currentSimilarity > bestSimilarity) {
                 bestSimilarity = currentSimilarity;
@@ -79,8 +78,9 @@ public class User {
         return bestUser;
     }
     private int countSameCourses(User user) {
-        List<String> myCourses = getCoursesFromDataBase(getUsername());
-        List<String> userCourses = getCoursesFromDataBase(user.getUsername());
+        Communication com = new Communication();
+        List<String> myCourses = asList(com.getCourses(getUsername()));
+        List<String> userCourses = asList(com.getCourses(user.getUsername()));
         int count = 0;
         for (String course : myCourses) {
             if (userCourses.contains(course)) {
@@ -90,13 +90,6 @@ public class User {
         return count;
     }
 
-    private double calculateSimilarity(int sameCourses, int ageDiff) {
-        double courseWeight = 0.75;
-        double ageWeight = 0.25;
-
-        return (courseWeight * sameCourses) + (ageWeight * ageDiff);
-    }
-*/
     @Override
     public String toString() {
         return "User: " + name + " " + surname;
